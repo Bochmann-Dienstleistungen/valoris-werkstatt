@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VALORIS · Design-Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=Bricolage+Grotesque:wght@500;700&family=Cormorant:wght@500;600;700&family=DM+Serif+Display&family=Fraunces:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;600&family=Inter+Tight:wght@400;600&family=Inter:wght@400;600&family=Libre+Franklin:wght@400;600&family=Manrope:wght@400;700&family=Playfair+Display:wght@600;700&family=Sora:wght@400;700&family=Space+Grotesk:wght@500;700&family=Spectral:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0E1A2B;--paper:#F4F2EC;--card:#fff;--ink:#16202E;--ink2:#5A6B82;--line:#E4E0D6;--brass:#C7A35A;--brassd:#A9863C;--shadow:0 14px 40px -18px rgba(14,26,43,.32)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:15px;line-height:1.5;padding-bottom:140px}
+  .top{background:var(--navy);color:#fff;padding:22px 30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:30}
+  .top .mark{width:40px;height:40px;border-radius:9px;background:linear-gradient(150deg,#13243B,#0A1320);border:1px solid rgba(199,163,90,.4);display:grid;place-items:center;font-family:'Cormorant',serif;font-weight:700;color:var(--brass);font-size:22px}
+  .top h1{font-size:1.2rem;font-weight:700}
+  .top h1 span{color:var(--brass);font-weight:500}
+  .top .upd{margin-left:auto;font-size:.8rem;color:#9FB0C2;text-align:right}
+  .wrap{max-width:1280px;margin:0 auto;padding:26px 30px}
+  .intro{color:var(--ink2);max-width:760px;margin-bottom:22px}
+  .bar{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:8px;position:sticky;top:84px;z-index:20;background:var(--paper);padding:12px 0}
+  .filtlabel{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:700;margin-right:4px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .chip{padding:7px 14px;border-radius:100px;border:1px solid var(--line);background:#fff;color:var(--ink2);font-size:.84rem;font-weight:600;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .chip:hover{border-color:var(--brass)}
+  .chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .jump{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+  .jump a{font-size:.8rem;color:var(--brassd);font-weight:600;text-decoration:none;padding:4px 8px;border-radius:7px}
+  .jump a:hover{background:#fff}
+
+  .cat{margin:38px 0 16px;display:flex;align-items:baseline;gap:12px}
+  .cat h2{font-family:'Cormorant',serif;font-size:1.9rem;font-weight:700}
+  .cat .c{font-size:.8rem;color:var(--ink2)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 22px 50px -22px rgba(14,26,43,.4)}
+  .card.picked{outline:2px solid var(--brass);outline-offset:1px}
+  .card h3{font-size:1.08rem;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .new{font-size:.62rem;font-weight:700;background:var(--brass);color:var(--navy);padding:2px 7px;border-radius:20px;letter-spacing:.04em}
+  .vibe{font-size:.82rem;color:var(--ink2);margin-bottom:12px;min-height:34px}
+  .preview{margin-bottom:12px}
+  .fontsample{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#FBFAF6}
+  .fontsample .d{font-size:1.5rem;line-height:1.1;margin-bottom:5px}
+  .fontsample .b{font-size:.86rem;color:var(--ink2)}
+  .fontsample .n{font-size:.68rem;color:var(--brassd);margin-top:8px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+  .wf{width:100%;aspect-ratio:16/10;background:#EEF0F2;border:1px solid var(--line);border-radius:10px;position:relative;overflow:hidden}
+  .wf>div{position:absolute;background:#C6CCD4;border-radius:3px}
+  .wf .ac{background:var(--brass)}
+  .wf .ph{background:#AEB6C0}
+  .ic{font-size:1.7rem;line-height:1;margin-bottom:8px}
+  .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+  .tag{font-size:.66rem;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.02em}
+  .tag.pk{background:#EEF1F5;color:#3C4A5C}
+  .tag.STARTER{background:#E6F0E8;color:#2f7d4f}
+  .tag.PREMIUM{background:#FBF1DC;color:#9a7320}
+  .tag.INDIVIDUAL{background:#ECE7F5;color:#6b4ea0}
+  .tag.skill{background:#E8EEF5;color:#36618e}
+  .note{font-size:.74rem;color:var(--ink2);margin-top:8px;font-style:italic}
+  .pickbtn{margin-top:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:600;font-size:.84rem;padding:8px;border-radius:9px;cursor:pointer;transition:.2s}
+  .pickbtn:hover{border-color:var(--brass)}
+  .card.picked .pickbtn{background:var(--brass);color:var(--navy);border-color:var(--brass)}
+
+  .tray{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(14,26,43,.97);backdrop-filter:blur(10px);color:#fff;padding:16px 30px;box-shadow:0 -10px 40px rgba(0,0,0,.3);transform:translateY(calc(100% - 52px));transition:transform .4s cubic-bezier(.22,1,.36,1)}
+  .tray.open{transform:none}
+  .tray-head{display:flex;align-items:center;gap:14px;cursor:pointer;height:36px}
+  .tray-head b{font-size:1rem}
+  .tray-head .cnt{background:var(--brass);color:var(--navy);font-weight:700;border-radius:20px;padding:2px 10px;font-size:.82rem}
+  .tray-head .hint{margin-left:auto;font-size:.78rem;color:#9FB0C2}
+  .tray-body{padding-top:14px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start}
+  .brief{font-size:.86rem;line-height:1.7;color:#D9E0EA;white-space:pre-wrap;max-height:200px;overflow:auto}
+  .brief b{color:var(--brass)}
+  .tray-actions{display:flex;flex-direction:column;gap:8px;min-width:170px}
+  .tray-actions button{padding:10px 14px;border-radius:9px;border:0;font-weight:700;font-size:.84rem;cursor:pointer;font-family:inherit}
+  .copy{background:var(--brass);color:var(--navy)}
+  .clear{background:rgba(255,255,255,.1);color:#fff}
+  @media(max-width:720px){.tray-body{grid-template-columns:1fr}.bar{position:static}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="mark">V</div>
+  <h1>VALORIS <span>· Design-Palette</span></h1>
+  <div class="upd">Bausteine: <span id="count">—</span><br>zuletzt erweitert: <span id="upd">—</span></div>
+</div>
+
+<div class="wrap">
+  <p class="intro">Vor jedem Build hier die Bausteine zu <b>Paket × Inhaber × Branche</b> auswählen — Schrift, Hero, Layout, Animationen, Bild-Stil. Auswahl unten sammeln, als Build-Brief kopieren. Wird wöchentlich von Jarvis erweitert.</p>
+
+  <div class="bar">
+    <span class="filtlabel">Paket</span>
+    <div class="chips" id="pkchips"></div>
+    <div class="jump" id="jump"></div>
+  </div>
+
+  <div id="cats"></div>
+</div>
+
+<div class="tray" id="tray">
+  <div class="tray-head" id="trayhead">
+    <b>Build-Brief</b><span class="cnt" id="traycnt">0</span>
+    <span class="hint">klicken zum Auf-/Zuklappen · Bausteine mit „+ wählen" sammeln</span>
+  </div>
+  <div class="tray-body">
+    <div class="brief" id="brief">Noch nichts gewählt.</div>
+    <div class="tray-actions">
+      <button class="copy" id="copy">📋 Build-Brief kopieren</button>
+      <button class="clear" id="clear">Leeren</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const UPDATED="21.06.2026";
+/* cat: schrift|hero|layout|anim|bild ; pk: Paket-Tags ; added: Datum (für NEU-Badge) */
+const P=[
+ // ---------- SCHRIFT ----------
+ {cat:"schrift",name:"Luxe Classic",vibe:"Edel, zeitlos — die VALORIS-Hausschrift.",pk:["PREMIUM","INDIVIDUAL"],fd:"Cormorant",fb:"Inter",branche:"Gastronomie, Premium, Beauty",added:"2026-06-21"},
+ {cat:"schrift",name:"Corporate Trust",vibe:"Seriös, klar, vertrauensbildend.",pk:["PREMIUM","INDIVIDUAL"],fd:"Spectral",fb:"Inter Tight",branche:"Verwaltung, Recht, Dienstleistung",added:"2026-06-21"},
+ {cat:"schrift",name:"Editorial Warm",vibe:"Handwerklich, warm, magazinartig.",pk:["PREMIUM"],fd:"Fraunces",fb:"Hanken Grotesk",branche:"Handwerk, Manufaktur, Food",added:"2026-06-21"},
+ {cat:"schrift",name:"Elegant Editorial",vibe:"Mode-/Beauty-Eleganz mit Kontrast.",pk:["PREMIUM"],fd:"Playfair Display",fb:"Manrope",branche:"Beauty, Mode, Praxis",added:"2026-06-21"},
+ {cat:"schrift",name:"Modern Statement",vibe:"Selbstbewusst, jung, auffällig.",pk:["PREMIUM","INDIVIDUAL"],fd:"Bricolage Grotesque",fb:"Inter",branche:"Agentur, Tech, Startup",added:"2026-06-21"},
+ {cat:"schrift",name:"Clean Tech",vibe:"Nüchtern, präzise, B2B.",pk:["STARTER","PREMIUM"],fd:"Sora",fb:"Inter",branche:"Tech, B2B, Handwerk-modern",added:"2026-06-21"},
+ {cat:"schrift",name:"Boutique",vibe:"Charmant, klein-fein, persönlich.",pk:["PREMIUM"],fd:"DM Serif Display",fb:"Sora",branche:"Café, Boutique, Floristik",added:"2026-06-21"},
+ {cat:"schrift",name:"Sachlich Stark",vibe:"Robust, direkt, bodenständig.",pk:["STARTER"],fd:"Archivo",fb:"Libre Franklin",branche:"Handwerk, Industrie, KFZ",added:"2026-06-21"},
+ {cat:"schrift",name:"Architektur Minimal",vibe:"Reduziert, kühl, hochwertig.",pk:["INDIVIDUAL"],fd:"Space Grotesk",fb:"Inter",branche:"Immobilien, Architektur, Design",added:"2026-06-21"},
+
+ // ---------- HERO ----------
+ {cat:"hero",name:"Cinematic Layer-Hero",vibe:"Subjekt wächst aus Nebel, Wortmarke wird gezeichnet (findrealestate-Mechanik).",pk:["INDIVIDUAL","PREMIUM"],wf:"cinematic",skill:"cinematic-hero",added:"2026-06-21"},
+ {cat:"hero",name:"Video-Hero",vibe:"Vollflächiges Hintergrundvideo (Mixkit) mit Overlay-Text.",pk:["PREMIUM","INDIVIDUAL"],wf:"video",added:"2026-06-21"},
+ {cat:"hero",name:"Ken-Burns Bild-Hero",vibe:"Langsamer Zoom/Pan auf ein Standbild — Kino-Gefühl ohne Video.",pk:["STARTER","PREMIUM"],wf:"kenburns",added:"2026-06-21"},
+ {cat:"hero",name:"Morph-Hero",vibe:"Medien-Header morpht beim Scroll in gerundete Karte.",pk:["PREMIUM"],wf:"morph",skill:"morph-hero",added:"2026-06-21"},
+ {cat:"hero",name:"Split-Hero",vibe:"Text links, Bild/Visual rechts — direkt, klar.",pk:["STARTER","PREMIUM"],wf:"split",added:"2026-06-21"},
+ {cat:"hero",name:"Statisch + Formular",vibe:"Bild + Lead-Formular sofort sichtbar — Conversion zuerst.",pk:["STARTER"],wf:"formhero",added:"2026-06-21"},
+ {cat:"hero",name:"Logo-Intro-Loader",vibe:"Reveal + Loop + Tilt der Wortmarke vor dem Hero.",pk:["PREMIUM","INDIVIDUAL"],wf:"logointro",skill:"kinetic-type",added:"2026-06-21"},
+
+ // ---------- LAYOUT ----------
+ {cat:"layout",name:"Zentriert / Symmetrisch",vibe:"Klassisch, ruhig, vertrauenswürdig.",pk:["STARTER","PREMIUM"],wf:"center",added:"2026-06-21"},
+ {cat:"layout",name:"Asymmetrisch / Editorial",vibe:"Spannung, Charakter, Agentur-Look.",pk:["PREMIUM","INDIVIDUAL"],wf:"asym",added:"2026-06-21"},
+ {cat:"layout",name:"Bento-Grid",vibe:"Leistungen/Features als modulares Raster.",pk:["PREMIUM"],wf:"bento",skill:"micro-fx",added:"2026-06-21"},
+ {cat:"layout",name:"Split-Screen",vibe:"Zwei Hälften — Kontrast & Fokus.",pk:["PREMIUM"],wf:"splitlay",added:"2026-06-21"},
+ {cat:"layout",name:"Magazine-Spalten",vibe:"Story/Editorial mit Mehrspalten-Rhythmus.",pk:["INDIVIDUAL"],wf:"magazine",added:"2026-06-21"},
+ {cat:"layout",name:"Full-bleed / Immersiv",vibe:"Vollbild-Sektionen, randlos, visuell.",pk:["PREMIUM","INDIVIDUAL"],wf:"fullbleed",added:"2026-06-21"},
+
+ // ---------- ANIMATION ----------
+ {cat:"anim",name:"Scroll-Reveal",vibe:"Sanftes Einblenden + Lift beim Scrollen.",pk:["STARTER","PREMIUM","INDIVIDUAL"],ic:"🪶",added:"2026-06-21"},
+ {cat:"anim",name:"Word-Reveal (Blur)",vibe:"Headline-Wörter steigen mit Blur-Auflösung ein.",pk:["PREMIUM"],ic:"🔤",skill:"kinetic-type",added:"2026-06-21"},
+ {cat:"anim",name:"Char-Split SplitText",vibe:"Buchstaben-Slide aus Maske — dramatische Titel.",pk:["PREMIUM","INDIVIDUAL"],ic:"✂️",skill:"kinetic-type",added:"2026-06-21"},
+ {cat:"anim",name:"Magnetic Buttons",vibe:"Buttons ziehen den Cursor an — wertig.",pk:["PREMIUM"],ic:"🧲",skill:"micro-fx",added:"2026-06-21"},
+ {cat:"anim",name:"Parallax",vibe:"Tiefenebenen bewegen sich unterschiedlich schnell.",pk:["PREMIUM"],ic:"🌌",added:"2026-06-21"},
+ {cat:"anim",name:"Pinned Scroll-Story",vibe:"Sektion bleibt fixiert, Inhalt erzählt beim Scroll.",pk:["INDIVIDUAL"],ic:"📌",skill:"scroll-story",added:"2026-06-21"},
+ {cat:"anim",name:"Image Clip-Reveal",vibe:"Bilder werden per clip-path freigewischt.",pk:["PREMIUM"],ic:"🎞️",skill:"micro-fx",added:"2026-06-21"},
+ {cat:"anim",name:"Counter / Zahlen",vibe:"Kennzahlen zählen beim Erscheinen hoch.",pk:["PREMIUM"],ic:"🔢",skill:"micro-fx",added:"2026-06-21"},
+ {cat:"anim",name:"Marquee / Lauftext",vibe:"Endlos-Laufband für Leistungen/Logos.",pk:["STARTER","PREMIUM"],ic:"🏷️",added:"2026-06-21"},
+ {cat:"anim",name:"Spotlight-Bento",vibe:"Glow folgt der Maus über Karten (kein Cursor).",pk:["PREMIUM"],ic:"🔦",skill:"micro-fx",added:"2026-06-21"},
+ {cat:"anim",name:"Aurora / Ambient-BG",vibe:"Weiche, animierte Gradient-Blobs im Hintergrund.",pk:["PREMIUM","INDIVIDUAL"],ic:"🌈",skill:"ambient-bg",added:"2026-06-21"},
+ {cat:"anim",name:"Gradient-Shimmer",vibe:"Schimmer wandert über Text/Flächen.",pk:["PREMIUM"],ic:"✨",skill:"kinetic-type",added:"2026-06-21"},
+ {cat:"anim",name:"3D-Tilt Cards",vibe:"Karten neigen sich leicht zum Cursor.",pk:["PREMIUM"],ic:"🃏",skill:"micro-fx",added:"2026-06-21"},
+
+ // ---------- BILD-STIL ----------
+ {cat:"bild",name:"Editorial Echtfotos",vibe:"Hochwertige echte Fotos (Pexels, self-host).",pk:["STARTER","PREMIUM","INDIVIDUAL"],ic:"📷",added:"2026-06-21"},
+ {cat:"bild",name:"Ken-Burns Zoom",vibe:"Langsamer Zoom auf Standbilder — Bewegung ohne Video.",pk:["STARTER","PREMIUM"],ic:"🎬",added:"2026-06-21"},
+ {cat:"bild",name:"Duotone / Markenton",vibe:"Fotos in zwei Markenfarben — starke Einheit.",pk:["PREMIUM"],ic:"🎨",added:"2026-06-21"},
+ {cat:"bild",name:"Film-Grain / Noise",vibe:"Feines Korn über Flächen — analog, edel.",pk:["PREMIUM","INDIVIDUAL"],ic:"🌫️",skill:"ambient-bg",added:"2026-06-21"},
+ {cat:"bild",name:"Cinematic-Cutout",vibe:"Freigestelltes Subjekt + Bokeh (Higgsfield).",pk:["INDIVIDUAL"],ic:"🪄",skill:"cinematic-hero",added:"2026-06-21"},
+ {cat:"bild",name:"Bento-Foto-Grid",vibe:"Foto-Collage als Raster mit Akzentkarte.",pk:["PREMIUM"],ic:"🧩",added:"2026-06-21"},
+ {cat:"bild",name:"Vollbild-Parallax-Bild",vibe:"Randloses Bild mit Tiefen-Scrolleffekt.",pk:["PREMIUM","INDIVIDUAL"],ic:"🖼️",added:"2026-06-21"},
+];
+
+const CATS=[["schrift","Schrift","Display + Body Paarungen"],["hero","Hero-Typen","Der erste Eindruck"],["layout","Layout-Stile","Aufbau & Raster"],["anim","Animationen","Bewegung & Micro-FX"],["bild","Bild-Stil","Bildsprache & Behandlung"]];
+const PKS=["Alle","STARTER","PREMIUM","INDIVIDUAL"];
+let pkFilter="Alle";
+const picked=new Set();
+
+function wf(k){
+  const W='<div class="wf">'; const E='</div>';
+  const m={
+    cinematic:"<div class='ph' style='inset:0;border-radius:0'></div><div class='ac' style='left:30%;top:62%;width:40%;height:9%'></div>",
+    video:"<div class='ph' style='inset:0;border-radius:0'></div><div style='left:14%;top:64%;width:46%;height:8%;background:#fff'></div><div class='ac' style='left:14%;top:78%;width:24%;height:8%'></div>",
+    kenburns:"<div class='ph' style='inset:-8%;border-radius:0'></div><div style='left:18%;top:40%;width:50%;height:10%;background:#fff'></div>",
+    morph:"<div class='ph' style='left:18%;top:14%;right:18%;bottom:14%;border-radius:14px'></div>",
+    split:"<div style='left:8%;top:24%;width:34%;height:10%'></div><div style='left:8%;top:40%;width:28%;height:7%'></div><div class='ph' style='right:6%;top:12%;width:42%;bottom:12%'></div>",
+    formhero:"<div class='ph' style='inset:0;border-radius:0'></div><div style='right:8%;top:16%;width:34%;bottom:16%;background:#fff'></div>",
+    logointro:"<div class='ac' style='left:38%;top:40%;width:24%;height:18%;border-radius:50%'></div>",
+    center:"<div style='left:30%;top:18%;width:40%;height:9%'></div><div style='left:34%;top:32%;width:32%;height:6%'></div><div class='ac' style='left:40%;top:48%;width:20%;height:9%'></div>",
+    asym:"<div style='left:8%;top:16%;width:46%;height:12%'></div><div style='left:8%;top:34%;width:30%;height:7%'></div><div class='ph' style='right:6%;top:30%;width:34%;height:55%'></div>",
+    bento:"<div class='ph' style='left:6%;top:12%;width:46%;height:48%'></div><div style='right:6%;top:12%;width:34%;height:22%'></div><div style='right:6%;top:38%;width:34%;height:22%'></div><div style='left:6%;top:66%;width:88%;height:22%'></div>",
+    splitlay:"<div style='left:0;top:0;width:50%;height:100%;background:#D6DBE1'></div><div class='ph' style='right:0;top:0;width:50%;height:100%;border-radius:0'></div>",
+    magazine:"<div style='left:8%;top:14%;width:84%;height:8%'></div><div style='left:8%;top:30%;width:25%;height:55%'></div><div style='left:38%;top:30%;width:25%;height:55%'></div><div style='left:68%;top:30%;width:24%;height:55%'></div>",
+    fullbleed:"<div class='ph' style='inset:0;border-radius:0'></div><div style='left:0;bottom:0;width:100%;height:30%;background:rgba(14,26,43,.55)'></div>"
+  };
+  return W+(m[k]||"")+E;
+}
+
+function card(it){
+  const id=it.cat+":"+it.name;
+  const isNew=(Date.now()-new Date(it.added).getTime())<7*864e5;
+  let prev="";
+  if(it.cat==="schrift"){
+    prev=`<div class="fontsample"><div class="d" style="font-family:'${it.fd}',serif">${it.name}</div><div class="b" style="font-family:'${it.fb}',sans-serif">Vom ersten Eindruck bis zum letzten Detail — so liest sich Ihre Marke.</div><div class="n">${it.fd} + ${it.fb}</div></div>`;
+  } else if(it.wf){ prev=`<div class="preview">${wf(it.wf)}</div>`; }
+  else if(it.ic){ prev=`<div class="ic">${it.ic}</div>`; }
+  const pkTags=it.pk.map(p=>`<span class="tag ${p}">${p}</span>`).join("");
+  const skill=it.skill?`<span class="tag skill">/${it.skill}</span>`:"";
+  const branche=it.branche?`<div class="note">Passt zu: ${it.branche}</div>`:"";
+  return `<div class="card ${picked.has(id)?'picked':''}" data-id="${id}">
+    <h3>${it.name}${isNew?'<span class="new">NEU</span>':''}</h3>
+    <div class="vibe">${it.vibe}</div>
+    ${prev}
+    ${branche}
+    <div class="tags">${pkTags}${skill}</div>
+    <button class="pickbtn" data-pick="${id}">${picked.has(id)?'✓ gewählt':'+ wählen'}</button>
+  </div>`;
+}
+
+function render(){
+  document.getElementById("count").textContent=P.length;
+  document.getElementById("upd").textContent=UPDATED;
+  document.getElementById("pkchips").innerHTML=PKS.map(p=>`<div class="chip ${p===pkFilter?'active':''}" data-pk="${p}">${p}</div>`).join("");
+  document.getElementById("jump").innerHTML=CATS.map(c=>`<a href="#${c[0]}">${c[1]}</a>`).join("");
+  const host=document.getElementById("cats"); host.innerHTML="";
+  CATS.forEach(c=>{
+    let items=P.filter(x=>x.cat===c[0] && (pkFilter==="Alle"||x.pk.includes(pkFilter)));
+    if(!items.length) return;
+    const sec=document.createElement("section");
+    sec.innerHTML=`<div class="cat" id="${c[0]}"><h2>${c[1]}</h2><span class="c">${c[2]} · ${items.length}</span></div><div class="grid">${items.map(card).join("")}</div>`;
+    host.appendChild(sec);
+  });
+  bind();
+  renderTray();
+}
+
+function bind(){
+  document.querySelectorAll("[data-pk]").forEach(c=>c.onclick=()=>{pkFilter=c.dataset.pk;render();});
+  document.querySelectorAll("[data-pick]").forEach(b=>b.onclick=(e)=>{
+    e.stopPropagation(); const id=b.dataset.pick;
+    picked.has(id)?picked.delete(id):picked.add(id); render();
+  });
+}
+
+function renderTray(){
+  document.getElementById("traycnt").textContent=picked.size;
+  const brief=document.getElementById("brief");
+  if(!picked.size){brief.textContent="Noch nichts gewählt.";return;}
+  const byCat={};
+  picked.forEach(id=>{const[c,n]=id.split(":");(byCat[c]=byCat[c]||[]).push(n);});
+  const lbl={schrift:"Schrift",hero:"Hero",layout:"Layout",anim:"Animationen",bild:"Bild-Stil"};
+  brief.innerHTML=CATS.map(c=>c[0]).filter(c=>byCat[c]).map(c=>`<b>${lbl[c]}:</b> ${byCat[c].join(", ")}`).join("\n");
+}
+
+function briefText(){
+  if(!picked.size) return "";
+  const byCat={}; picked.forEach(id=>{const[c,n]=id.split(":");(byCat[c]=byCat[c]||[]).push(n);});
+  const lbl={schrift:"Schrift",hero:"Hero",layout:"Layout",anim:"Animationen",bild:"Bild-Stil"};
+  return "VALORIS BUILD-BRIEF\n"+CATS.map(c=>c[0]).filter(c=>byCat[c]).map(c=>lbl[c]+": "+byCat[c].join(", ")).join("\n");
+}
+
+document.getElementById("trayhead").onclick=()=>document.getElementById("tray").classList.toggle("open");
+document.getElementById("clear").onclick=()=>{picked.clear();render();};
+document.getElementById("copy").onclick=()=>{
+  const t=briefText(); if(!t)return;
+  navigator.clipboard?.writeText(t).then(()=>{const b=document.getElementById("copy");b.textContent="✓ kopiert";setTimeout(()=>b.textContent="📋 Build-Brief kopieren",1500);});
+};
+
+render();
+</script>
+</body>
+</html>
