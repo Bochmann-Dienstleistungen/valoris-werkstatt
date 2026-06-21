@@ -162,9 +162,23 @@ const P=[
  {cat:"bild",name:"Cinematic-Cutout",vibe:"Freigestelltes Subjekt + Bokeh (Higgsfield).",pk:["INDIVIDUAL"],ic:"🪄",skill:"cinematic-hero",added:"2026-06-21"},
  {cat:"bild",name:"Bento-Foto-Grid",vibe:"Foto-Collage als Raster mit Akzentkarte.",pk:["PREMIUM"],ic:"🧩",added:"2026-06-21"},
  {cat:"bild",name:"Vollbild-Parallax-Bild",vibe:"Randloses Bild mit Tiefen-Scrolleffekt.",pk:["PREMIUM","INDIVIDUAL"],ic:"🖼️",added:"2026-06-21"},
+
+ // ---------- HERO (neu 21.06. — zachex-Layouts) ----------
+ {cat:"hero",name:"Annotated / Feature-Tooltips",vibe:"Produkt oder Person mit schwebenden Feature-Labels (z. B. 40% leichter, wasserdicht).",pk:["PREMIUM","INDIVIDUAL"],wf:"annotated",branche:"Produkt, Outdoor, Tech, Mode",added:"2026-06-21"},
+ {cat:"hero",name:"Illustrative Wordmark",vibe:"Riesige individuell gestaltete Wortmarke als Held — laut, einprägsam.",pk:["PREMIUM","INDIVIDUAL"],wf:"illustr",branche:"Sport, Streetwear, Event, Marke",added:"2026-06-21"},
+ {cat:"hero",name:"Typo hinter Subjekt",vibe:"Mega-Headline hinter freigestelltem Subjekt (text-behind-image).",pk:["PREMIUM","INDIVIDUAL"],wf:"textbehind",branche:"Editorial, Mode, Personal Brand",added:"2026-06-21"},
+
+ // ---------- FARBWELTEN (neu 21.06. — janm_ux + VALORIS) ----------
+ {cat:"farbe",name:"Navy × Messing (VALORIS)",c1:"#0E1A2B",n1:"Navy",c2:"#C7A35A",n2:"Messing",pk:["PREMIUM","INDIVIDUAL"],branche:"Premium, Verwaltung, Luxus",added:"2026-06-21"},
+ {cat:"farbe",name:"Royal Blue × Powder Pink",c1:"#3447AA",n1:"Royal Blue",c2:"#FBEAEB",n2:"Powder Pink",pk:["PREMIUM"],branche:"Beauty, Tech, Modern",added:"2026-06-21"},
+ {cat:"farbe",name:"Sulu × Deep Fir",c1:"#9FE870",n1:"Sulu",c2:"#163300",n2:"Deep Fir",pk:["PREMIUM","INDIVIDUAL"],branche:"Sport, Garten, Nachhaltig",added:"2026-06-21"},
+ {cat:"farbe",name:"Jet Stream × Blue Whale",c1:"#BDD9D7",n1:"Jet Stream",c2:"#03363D",n2:"Blue Whale",pk:["STARTER","PREMIUM"],branche:"Medizin, Wellness, Maritim",added:"2026-06-21"},
+ {cat:"farbe",name:"Bright Sun × Big Stone",c1:"#FCDB32",n1:"Bright Sun",c2:"#141D38",n2:"Big Stone",pk:["PREMIUM"],branche:"Energie, Bau, Auffällig",added:"2026-06-21"},
+ {cat:"farbe",name:"Turquoise × Black",c1:"#34E0A1",n1:"Turquoise",c2:"#000000",n2:"Black",pk:["PREMIUM","INDIVIDUAL"],branche:"Tech, Fintech, Bold",added:"2026-06-21"},
+ {cat:"farbe",name:"Periwinkle × Lavender",c1:"#6260FF",n1:"Periwinkle",c2:"#E4E4FF",n2:"Lavender",pk:["PREMIUM"],branche:"SaaS, Kreativ, Jung",added:"2026-06-21"},
 ];
 
-const CATS=[["schrift","Schrift","Display + Body Paarungen"],["hero","Hero-Typen","Der erste Eindruck"],["layout","Layout-Stile","Aufbau & Raster"],["anim","Animationen","Bewegung & Micro-FX"],["bild","Bild-Stil","Bildsprache & Behandlung"]];
+const CATS=[["schrift","Schrift","Display + Body Paarungen"],["hero","Hero-Typen","Der erste Eindruck"],["layout","Layout-Stile","Aufbau & Raster"],["anim","Animationen","Bewegung & Micro-FX"],["bild","Bild-Stil","Bildsprache & Behandlung"],["farbe","Farbwelten","Farb-Kombinationen"]];
 const PKS=["Alle","STARTER","PREMIUM","INDIVIDUAL"];
 let pkFilter="Alle";
 const picked=new Set();
@@ -184,7 +198,10 @@ function wf(k){
     bento:"<div class='ph' style='left:6%;top:12%;width:46%;height:48%'></div><div style='right:6%;top:12%;width:34%;height:22%'></div><div style='right:6%;top:38%;width:34%;height:22%'></div><div style='left:6%;top:66%;width:88%;height:22%'></div>",
     splitlay:"<div style='left:0;top:0;width:50%;height:100%;background:#D6DBE1'></div><div class='ph' style='right:0;top:0;width:50%;height:100%;border-radius:0'></div>",
     magazine:"<div style='left:8%;top:14%;width:84%;height:8%'></div><div style='left:8%;top:30%;width:25%;height:55%'></div><div style='left:38%;top:30%;width:25%;height:55%'></div><div style='left:68%;top:30%;width:24%;height:55%'></div>",
-    fullbleed:"<div class='ph' style='inset:0;border-radius:0'></div><div style='left:0;bottom:0;width:100%;height:30%;background:rgba(14,26,43,.55)'></div>"
+    fullbleed:"<div class='ph' style='inset:0;border-radius:0'></div><div style='left:0;bottom:0;width:100%;height:30%;background:rgba(14,26,43,.55)'></div>",
+    annotated:"<div class='ph' style='left:30%;top:8%;width:40%;bottom:8%'></div><div style='left:60%;top:24%;width:26%;height:8%;background:#fff'></div><div style='left:8%;top:46%;width:26%;height:8%;background:#fff'></div><div style='left:56%;top:68%;width:32%;height:8%;background:#fff'></div>",
+    illustr:"<div style='left:10%;top:14%;width:42%;height:9%'></div><div class='ac' style='left:6%;bottom:12%;width:88%;height:30%'></div>",
+    textbehind:"<div style='left:4%;top:22%;width:38%;height:32%'></div><div style='right:4%;top:22%;width:38%;height:32%'></div><div class='ph' style='left:34%;top:10%;width:32%;bottom:6%'></div>"
   };
   return W+(m[k]||"")+E;
 }
@@ -195,7 +212,8 @@ function card(it){
   let prev="";
   if(it.cat==="schrift"){
     prev=`<div class="fontsample"><div class="d" style="font-family:'${it.fd}',serif">${it.name}</div><div class="b" style="font-family:'${it.fb}',sans-serif">Vom ersten Eindruck bis zum letzten Detail — so liest sich Ihre Marke.</div><div class="n">${it.fd} + ${it.fb}</div></div>`;
-  } else if(it.wf){ prev=`<div class="preview">${wf(it.wf)}</div>`; }
+  } else if(it.cat==="farbe"){ prev=`<div class="preview"><div style="display:flex;gap:8px;height:56px"><div style="flex:1;border-radius:9px;background:${it.c1};border:1px solid var(--line)"></div><div style="flex:1;border-radius:9px;background:${it.c2};border:1px solid var(--line)"></div></div><div style="display:flex;gap:8px;margin-top:5px;font-size:.66rem;color:var(--ink2)"><div style="flex:1">${it.n1} ${it.c1}</div><div style="flex:1">${it.n2} ${it.c2}</div></div></div>`; }
+  else if(it.wf){ prev=`<div class="preview">${wf(it.wf)}</div>`; }
   else if(it.ic){ prev=`<div class="ic">${it.ic}</div>`; }
   const pkTags=it.pk.map(p=>`<span class="tag ${p}">${p}</span>`).join("");
   const skill=it.skill?`<span class="tag skill">/${it.skill}</span>`:"";
@@ -241,14 +259,14 @@ function renderTray(){
   if(!picked.size){brief.textContent="Noch nichts gewählt.";return;}
   const byCat={};
   picked.forEach(id=>{const[c,n]=id.split(":");(byCat[c]=byCat[c]||[]).push(n);});
-  const lbl={schrift:"Schrift",hero:"Hero",layout:"Layout",anim:"Animationen",bild:"Bild-Stil"};
+  const lbl={schrift:"Schrift",hero:"Hero",layout:"Layout",anim:"Animationen",bild:"Bild-Stil",farbe:"Farbwelt"};
   brief.innerHTML=CATS.map(c=>c[0]).filter(c=>byCat[c]).map(c=>`<b>${lbl[c]}:</b> ${byCat[c].join(", ")}`).join("\n");
 }
 
 function briefText(){
   if(!picked.size) return "";
   const byCat={}; picked.forEach(id=>{const[c,n]=id.split(":");(byCat[c]=byCat[c]||[]).push(n);});
-  const lbl={schrift:"Schrift",hero:"Hero",layout:"Layout",anim:"Animationen",bild:"Bild-Stil"};
+  const lbl={schrift:"Schrift",hero:"Hero",layout:"Layout",anim:"Animationen",bild:"Bild-Stil",farbe:"Farbwelt"};
   return "VALORIS BUILD-BRIEF\n"+CATS.map(c=>c[0]).filter(c=>byCat[c]).map(c=>lbl[c]+": "+byCat[c].join(", ")).join("\n");
 }
 
