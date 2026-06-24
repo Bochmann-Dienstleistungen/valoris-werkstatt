@@ -10,6 +10,18 @@ EIN Befehl → vollständige, deploybare Seite. Keine Rückfragen außer „welc
 ## Vor jedem Build (PFLICHT)
 1. **Palette abrufen:** `palette.html` (live: https://bochmann-dienstleistungen.github.io/valoris-palette/) — Bausteine zu **Paket × Inhaber × Branche** wählen: Schrift · Hero · Layout · Animationen · Bild-Stil. Wenn Frederic schon einen „Build-Brief" diktiert hat, den nehmen.
 2. **Build-Patterns lesen:** `skills/gsap-ultra.md` (GSAP + Vanilla-Patterns: Loader, SplitText, Reveals, Parallax, Word-Reveal, Spotlight-Bento, Cinematic-Hero-Verweis).
+3. **Passende Skills lesen:** je nach Auftrag die relevante `SKILL.md` aus `.claude/skills/` öffnen und anwenden (Katalog unten).
+
+## Verfügbare Skills (`.claude/skills/` — VOR dem Bauen die passende SKILL.md lesen)
+- **cinematic-hero** — cinematischer Layer-Hero (Subjekt wächst aus Nebel, Wortmarke wird gezeichnet). PREMIUM/INDIVIDUAL. Asset-Pipeline (Cutout/Luminanz) braucht teils den Mac → in der Cloud die Code-/Layout-Mechanik nutzen, Assets als Pexels-Platzhalter.
+- **morph-hero** — vollflächiger Foto/Video-Header zoomt beim Scrollen in eine gerundete Karte. PREMIUM-Hero-Option, Detail-/Objektseiten. Enthält `reference.html`.
+- **kinetic-type** — Headline-Animationen: Wort/Zeichen-Reveal, Scramble/Decode, Gradient-Shimmer, Variable-Font, Marquee.
+- **scroll-story** — Pinned Sections, horizontale Scroll-Galerie, Card-Stack, Sticky Bild/Text-Paare. Prozess-/Portfolio-Strecken.
+- **micro-fx** — Magnetic Buttons, 3D-Tilt-Cards, Image-Reveal, animierte Counter, Link-Underline. KEIN Custom Cursor.
+- **ambient-bg** — Aurora/Gradient-Mesh, Film-Grain, Glas-Bento. Hintergrund-Atmosphäre, „soll edel aussehen".
+- **scroll-css** — Scroll-Reveals/Parallax in reinem CSS (`animation-timeline`), leichtgewichtig — auch für STARTER.
+- **kunde-verstehen** — Discovery-Framework: vor dem Build aus Frederics Diktat ein knappes Kundenprofil (Betrieb · Inhaber · Niveau · CTA · Pitch-Winkel) ableiten.
+- **framer-ultra** — Framer-Workflow-Wissen für ULTRA/INDIVIDUAL (Referenz; Cloud baut self-contained HTML).
 
 ## Pakete & Preise (NEU seit 13.06.2026 — Endpreise, §19, keine MwSt.)
 - **STARTER 1.590 €** — 1-seitig, mobil, WhatsApp, Maps, Formular, Basis-SEO.
